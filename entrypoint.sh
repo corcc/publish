@@ -25,13 +25,7 @@ git lfs install
 # publish any new files
 git checkout ${BRANCH_NAME}
 git add -A
-if [ -z "${TIMEZONE}" ]; then
-    timestamp=$(date)
-else 
-    timestamp=$(TZ=${TIMEZONE} date)
-    echo $timestamp
-fi
-
+timestamp=$(TZ=${TIMEZONE} date)
 git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
 git pull --rebase publisher ${BRANCH_NAME}
 git push publisher ${BRANCH_NAME}
