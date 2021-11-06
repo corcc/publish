@@ -25,3 +25,4 @@ jobs:
     - uses: corcc/publish@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        TIMEZONE: 'Asia/Tokyo'
