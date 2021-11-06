@@ -25,7 +25,12 @@ git lfs install
 # publish any new files
 git checkout ${BRANCH_NAME}
 git add -A
-timestamp=$(TZ='Asia/Tokyo' date)
-git commit -m "Automated publish: ${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
+if [ -z "${TIMEZONE}" ]; then
+    timestamp=date
+else; then
+    timestamp=$(TZ=${TIMEZONE} date)
+fi
+
+git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
 git pull --rebase publisher ${BRANCH_NAME}
 git push publisher ${BRANCH_NAME}
