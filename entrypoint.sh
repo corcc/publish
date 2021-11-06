@@ -25,7 +25,7 @@ git lfs install
 # publish any new files
 git checkout ${BRANCH_NAME}
 git add -A
-export TZPATH=$(find / | grep "info/${TIMEZONE}") 
+TZPATH=$(find / | grep "info/${TIMEZONE}") 
 ln -s TZPATH /etc/localtime
 timestamp=$(date)
 git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
