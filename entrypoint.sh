@@ -25,9 +25,8 @@ git lfs install
 # publish any new files
 git checkout ${BRANCH_NAME}
 git add -A
-export TZ="${TIMEZONE}"
-echo "${TIMEZONE}"
-timedatectl set-timezone "${TIMEZONE}"
+export TZPATH=$(find / | grep "info/${TIMEZONE}") 
+ln -s TZPATH /etc/localtime
 timestamp=$(date)
 git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
 git pull --rebase publisher ${BRANCH_NAME}
