@@ -27,7 +27,7 @@ git checkout ${BRANCH_NAME}
 git add -A
 if [ -z "${TIMEZONE}" ]; then
     timestamp=date
-else; then
+else 
     timestamp=$(TZ=${TIMEZONE} date)
 fi
 
