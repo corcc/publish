@@ -25,7 +25,7 @@ git lfs install
 # publish any new files
 git checkout ${BRANCH_NAME}
 git add -A
-TZPATH=$(find / | grep "info/${TIMEZONE}") 
+TZPATH=$(find /usr/share/zoneinfo | grep "zoneinfo/${TIMEZONE}") 
 echo $TZPATH
 ln -s $TZPATH /etc/localtime
 ls -la /etc/localtime
