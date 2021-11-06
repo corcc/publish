@@ -27,7 +27,7 @@ git checkout ${BRANCH_NAME}
 git add -A
 TZPATH=$(find / | grep "info/${TIMEZONE}") 
 echo $TZPATH
-ln -s TZPATH /etc/localtime
+ln -s $TZPATH /etc/localtime
 ls -la /etc/localtime
 timestamp=$(date)
 echo $timestamp
