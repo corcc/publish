@@ -26,7 +26,7 @@ git lfs install
 git checkout ${BRANCH_NAME}
 git add -A
 if [ -z "${TIMEZONE}" ]; then
-    timestamp=date
+    timestamp=$(date)
 else 
     timestamp=$(TZ=${TIMEZONE} date)
 fi
