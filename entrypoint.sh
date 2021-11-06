@@ -29,6 +29,7 @@ if [ -z "${TIMEZONE}" ]; then
     timestamp=$(date)
 else 
     timestamp=$(TZ=${TIMEZONE} date)
+    echo $timestamp
 fi
 
 git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
