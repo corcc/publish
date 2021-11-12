@@ -7,7 +7,7 @@ if [ -z "${GITHUB_TOKEN}" ]; then
 fi
 
 if [ -z "${BRANCH_NAME}" ]; then
-   export BRANCH_NAME=master
+#    export BRANCH_NAME=master
 fi
 
 # initialize git
@@ -23,7 +23,10 @@ git branch --verbose
 git lfs install
 
 # publish any new files
-git checkout ${BRANCH_NAME}
+if [ -z "${BRANCH_NAME}" ]; then
+else
+    git checkout ${BRANCH_NAME}
+fi
 git add -A
 TZPATH=$(find /usr/share/zoneinfo | grep "zoneinfo/${TIMEZONE}")
 ln -s $TZPATH /etc/localtime
