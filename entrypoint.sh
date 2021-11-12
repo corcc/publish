@@ -7,7 +7,6 @@ if [ -z "${GITHUB_TOKEN}" ]; then
 fi
 
 if [ -z "${BRANCH_NAME}" ]; then
-#    export BRANCH_NAME=master
 fi
 
 # initialize git
