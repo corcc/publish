@@ -24,7 +24,7 @@ git branch --verbose
 git lfs install
 
 # publish any new files
-git checkout ${BRANCH_NAME}
+git checkout "${BRANCH_NAME}"
 git add -A
 TZPATH=$(find /usr/share/zoneinfo | grep "zoneinfo/${TIMEZONE}")
 ln -s $TZPATH /etc/localtime
