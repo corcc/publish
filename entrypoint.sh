@@ -8,7 +8,7 @@ fi
 
 if [ -z "${BRANCH_NAME}" ]; then
    export BRANCH_NAME='git rev-parse --abbrev-ref HEAD'
-   echo "$BRANCH_NAME"
+   echo "\$BRANCH_NAME\=$BRANCH_NAME"
 fi
 
 # initialize git
