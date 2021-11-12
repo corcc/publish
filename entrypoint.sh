@@ -7,12 +7,13 @@ if [ -z "${GITHUB_TOKEN}" ]; then
 fi
 
 if [ -z "${BRANCH_NAME}" ]; then
+   echo "NO BRANCH SELECTED"
    BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"
    readonly BRANCH_NAME
-#    export BRANCH_NAME=$BRANCH_NAME
-   echo "\$BRANCH_NAME\=$BRANCH_NAME"
+   echo "set \$BRANCH_NAME to current branch : $BRANCH_NAME"
+else
+   echo "set \$BRANCH_NAME to current branch : $BRANCH_NAME"
 fi
-
 # initialize git
 remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 git config http.sslVerify false
