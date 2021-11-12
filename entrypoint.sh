@@ -7,7 +7,7 @@ if [ -z "${GITHUB_TOKEN}" ]; then
 fi
 
 if [ -z "${BRANCH_NAME}" ]; then
-   export BRANCH_NAME='$(git rev-parse --abbrev-ref HEAD)'
+   export BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"
    echo "\$BRANCH_NAME\=$BRANCH_NAME"
 fi
 
