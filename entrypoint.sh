@@ -8,6 +8,7 @@ fi
 
 if [ -z "${BRANCH_NAME}" ]; then
    export BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"
+   readonly BRANCH_NAME
    echo "\$BRANCH_NAME\=$BRANCH_NAME"
 fi
 
