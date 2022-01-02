@@ -44,6 +44,10 @@ git branch --verbose
 git lfs install
 
 # publish any new files
+
+if [ "${FORCE}" = true ] ; then
+    git branch -b "${BRANCH_NAME}"
+fi
 git checkout "${BRANCH_NAME}"
 git add -A
 TZPATH=$(find /usr/share/zoneinfo | grep "zoneinfo/${TIMEZONE}")
