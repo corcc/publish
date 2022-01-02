@@ -14,6 +14,23 @@ if [ -z "${BRANCH_NAME}" ]; then
 else
    echo "set \$BRANCH_NAME to current branch : $BRANCH_NAME"
 fi
+
+
+if [ -z "${FORCE}" ]; then
+    echo "NOT DEFINED FORCE"
+    echo "set \$FORCE to false"
+    FORCE=false
+    readonly FORCE
+else
+    if [ "${FORCE}" = true ] ; then
+        echo 'FORCE=true'
+    fi
+    if [ "${FORCE}" = false ] ; then
+        echo 'FORCE=false'
+    fi
+fi
+
+
 # initialize git
 remote_repo="https://${GITHUB_ACTOR}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
 git config http.sslVerify false
@@ -36,4 +53,9 @@ timestamp=$(date)
 git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
 git pull --rebase 
 git pull --rebase publisher "${BRANCH_NAME}"
-git push publisher "${BRANCH_NAME}"
+
+if [ "${FORCE}" = true ] ; then
+    git push publisher "${BRANCH_NAME}" --force
+else
+    git push publisher "${BRANCH_NAME}"
+fi
