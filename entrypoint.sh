@@ -55,11 +55,11 @@ ln -s "$TZPATH" /etc/localtime
 ls -la /etc/localtime
 timestamp=$(date)
 git commit -m "${TASK_NAME} ${timestamp} ${GITHUB_SHA}" || exit 0
-git pull --rebase 
-git pull --rebase publisher "${BRANCH_NAME}"
 
 if [ "${FORCE}" = true ] ; then
     git push publisher "${BRANCH_NAME}" --force
 else
+    git pull --rebase 
+    git pull --rebase publisher "${BRANCH_NAME}"
     git push publisher "${BRANCH_NAME}"
 fi
