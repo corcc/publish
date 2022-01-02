@@ -46,7 +46,7 @@ git lfs install
 # publish any new files
 
 if [ "${FORCE}" = true ] ; then
-    git branch -b "${BRANCH_NAME}"
+    git branch -f "${BRANCH_NAME}"
 fi
 git checkout "${BRANCH_NAME}"
 git add -A
