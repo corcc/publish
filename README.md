@@ -1,4 +1,4 @@
-# `publish-to-github-action`
+# `corcc/publish`
 
 A GitHub Action to push any local file changes, including new files, back to supplied branch name.
 
@@ -8,10 +8,12 @@ that you'd then like to persist back into the repository.
 Usage:
 
 ```
-- uses: mikeal/publish-to-github-action@master
+- uses: corcc/publish@master
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    BRANCH_NAME: '' #optional defaults to master
+    TASK_NAME: '😎'
+    TIMEZONE: 'Asia/Tokyo'
+    BRANCH_NAME: '' #optional defaults to Current Branch
 ```
 
 If you can get away with only ever writing new files, instead of updating them, you won’t regret it ;) Every time you update a file you retain the history of the file. Over time this can become quite large and contain a lot of duplicate data, even when using Git LFS as described below. The only way to garbage collect this historical data is to use a [hefty Java program called BFG](https://rtyley.github.io/bfg-repo-cleaner/) to re-write the history.
