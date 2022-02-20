@@ -1,0 +1,22 @@
+name: Build
+on: # rebuild any PRs and main branch changes
+  workflow_dispatch:
+  pull_request:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          # Install
+          npm install
+      - run: |
+          # All
+          npm run all
+      - uses: corcc/publish@docker
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TASK_NAME: '🔧'
+          TZ: 'Asia/Tokyo'

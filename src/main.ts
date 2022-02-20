@@ -1,19 +1,59 @@
+import * as util from './util'
+import * as config from './config'
 import * as core from '@actions/core'
-import {wait} from './wait'
+import {email, name} from './config/git'
+import {getEnvRequired} from './util'
+import {exit} from 'process'
+const remoteName = 'publisher'
 
-async function run(): Promise<void> {
+export function Publish() {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    let result: any
+    core.info(`Branch on ${util.git.currentBranch()}`)
+    const TZ = util.getEnv('TZ')
+    if (TZ) {
+      core.info(`TimeZone on ${TZ}`)
+    } else {
+      core.info('TimeZone is not set.')
+      core.info('TimeZone will be UTC')
+    }
+    result = util.git.setConfig({
+      'user.name': name,
+      'user.email': email,
+      'http.sslVerify': 'false'
+    })
+    core.info(JSON.stringify(result, null, 2))
 
-    core.debug(new Date().toTimeString())
-    await wait(parseInt(ms, 10))
-    core.debug(new Date().toTimeString())
+    result = util.git.addAll()
+    core.info(result)
 
-    core.setOutput('time', new Date().toTimeString())
-  } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
+    result = util.git.addRemote({
+      name: remoteName,
+      url: config.git.remote
+    })
+    core.info(result)
+
+    result = util.git.diffHEAD()
+    if (result == '' || result.startsWith('\n')) {
+      core.info('Nothing to commit')
+      exit(0)
+    }
+    const timestamp = Date.now()
+    let message = `${getEnvRequired('TASK_NAME')} `
+    message += `${new Date(timestamp)}(${timestamp}) `
+    message += `${getEnvRequired('GITHUB_SHA')}`
+    result = util.git.commit({
+      message
+    })
+    core.info(result)
+
+    result = util.git.push({
+      remote: remoteName,
+      force: `${util.getEnv('FORCE')}` == 'true'
+    })
+    core.info(result)
+  } catch (err: any) {
+    core.setFailed(`Action failed with error ${err}`)
   }
 }
-
-run()
+Publish()
