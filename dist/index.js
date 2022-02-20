@@ -1,6 +1,148 @@
 require('./sourcemap-register.js');/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 692:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.remote = void 0;
+const index_1 = __nccwpck_require__(730);
+exports.remote = `https://${index_1.github.actor}:${index_1.github.token}@github.com/${index_1.github.repository}.git`;
+
+
+/***/ }),
+
+/***/ 105:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.email = exports.name = void 0;
+exports.name = 'Automated Publisher';
+exports.email = 'actions@users.noreply.github.com';
+
+
+/***/ }),
+
+/***/ 856:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__nccwpck_require__(692), exports);
+__exportStar(__nccwpck_require__(105), exports);
+
+
+/***/ }),
+
+/***/ 356:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.actor = void 0;
+const Env_1 = __nccwpck_require__(621);
+exports.actor = (0, Env_1.getEnvRequired)('GITHUB_ACTOR');
+
+
+/***/ }),
+
+/***/ 944:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.repository = void 0;
+const Env_1 = __nccwpck_require__(621);
+exports.repository = (0, Env_1.getEnvRequired)('GITHUB_REPOSITORY');
+
+
+/***/ }),
+
+/***/ 922:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.token = void 0;
+const Env_1 = __nccwpck_require__(621);
+exports.token = (0, Env_1.getEnvRequired)('GITHUB_TOKEN');
+
+
+/***/ }),
+
+/***/ 304:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__nccwpck_require__(356), exports);
+__exportStar(__nccwpck_require__(944), exports);
+__exportStar(__nccwpck_require__(922), exports);
+
+
+/***/ }),
+
+/***/ 730:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.git = exports.github = void 0;
+exports.github = __importStar(__nccwpck_require__(304));
+exports.git = __importStar(__nccwpck_require__(856));
+
+
+/***/ }),
+
 /***/ 109:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -25,66 +167,332 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.Publish = void 0;
+const util = __importStar(__nccwpck_require__(63));
+const config = __importStar(__nccwpck_require__(730));
 const core = __importStar(__nccwpck_require__(186));
-const wait_1 = __nccwpck_require__(817);
-function run() {
-    return __awaiter(this, void 0, void 0, function* () {
-        try {
-            const ms = core.getInput('milliseconds');
-            core.debug(`Waiting ${ms} milliseconds ...`); // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
-            core.debug(new Date().toTimeString());
-            yield (0, wait_1.wait)(parseInt(ms, 10));
-            core.debug(new Date().toTimeString());
-            core.setOutput('time', new Date().toTimeString());
+const git_1 = __nccwpck_require__(856);
+const util_1 = __nccwpck_require__(63);
+const process_1 = __nccwpck_require__(765);
+const remoteName = 'publisher';
+function Publish() {
+    try {
+        let result;
+        core.info(`Branch on ${util.git.currentBranch()}`);
+        const TZ = util.getEnv('TZ');
+        if (TZ) {
+            core.info(`TimeZone on ${TZ}`);
         }
-        catch (error) {
-            if (error instanceof Error)
-                core.setFailed(error.message);
+        else {
+            core.info('TimeZone is not set.');
+            core.info('TimeZone will be UTC');
         }
-    });
+        result = util.git.setConfig({
+            'user.name': git_1.name,
+            'user.email': git_1.email,
+            'http.sslVerify': 'false'
+        });
+        core.info(JSON.stringify(result, null, 2));
+        result = util.git.addAll();
+        core.info(result);
+        result = util.git.addRemote({
+            name: remoteName,
+            url: config.git.remote
+        });
+        core.info(result);
+        result = util.git.diffHEAD();
+        if (result == '' || result.startsWith('\n')) {
+            core.info('Nothing to commit');
+            (0, process_1.exit)(0);
+        }
+        const timestamp = Date.now();
+        let message = `${(0, util_1.getEnvRequired)('TASK_NAME')} `;
+        message += `${new Date(timestamp)}(${timestamp}) `;
+        message += `${(0, util_1.getEnvRequired)('GITHUB_SHA')}`;
+        result = util.git.commit({
+            message
+        });
+        core.info(result);
+        result = util.git.push({
+            remote: remoteName,
+            force: `${util.getEnv('FORCE')}` == 'true'
+        });
+        core.info(result);
+    }
+    catch (err) {
+        core.setFailed(`Action failed with error ${err}`);
+    }
 }
-run();
+exports.Publish = Publish;
+Publish();
 
 
 /***/ }),
 
-/***/ 817:
-/***/ (function(__unused_webpack_module, exports) {
+/***/ 621:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.wait = void 0;
-function wait(milliseconds) {
-    return __awaiter(this, void 0, void 0, function* () {
-        return new Promise(resolve => {
-            if (isNaN(milliseconds)) {
-                throw new Error('milliseconds not a number');
-            }
-            setTimeout(() => resolve('done!'), milliseconds);
-        });
-    });
+exports.getEnvRequired = exports.getEnv = void 0;
+const core = __importStar(__nccwpck_require__(186));
+function getEnv(n) {
+    const e = core.getInput(n) || process.env[n];
+    return e;
 }
-exports.wait = wait;
+exports.getEnv = getEnv;
+function getEnvRequired(n) {
+    const e = getEnv(n);
+    if (!e) {
+        throw Error(`${n} is required but not set`);
+    }
+    return `${e}`;
+}
+exports.getEnvRequired = getEnvRequired;
+
+
+/***/ }),
+
+/***/ 909:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.execSyncString = void 0;
+const core = __importStar(__nccwpck_require__(186));
+const child_process_1 = __nccwpck_require__(129);
+function execSyncString(c) {
+    core.info(c);
+    const r = (0, child_process_1.execSync)(c).toString();
+    return r.endsWith('\n') ? r.slice(0, r.length - 1) : r;
+}
+exports.execSyncString = execSyncString;
+
+
+/***/ }),
+
+/***/ 703:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.addAll = void 0;
+const Exec_1 = __nccwpck_require__(909);
+function addAll() {
+    const cmd = 'git add -A';
+    return (0, Exec_1.execSyncString)(cmd);
+}
+exports.addAll = addAll;
+
+
+/***/ }),
+
+/***/ 886:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.currentBranch = void 0;
+const Exec_1 = __nccwpck_require__(909);
+function currentBranch() {
+    const cmd = 'git rev-parse --abbrev-ref HEAD';
+    return (0, Exec_1.execSyncString)(cmd);
+}
+exports.currentBranch = currentBranch;
+
+
+/***/ }),
+
+/***/ 999:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.commit = void 0;
+const Exec_1 = __nccwpck_require__(909);
+function commit({ message }) {
+    const cmd = `git commit -m ${JSON.stringify(message)}`;
+    return (0, Exec_1.execSyncString)(cmd);
+}
+exports.commit = commit;
+
+
+/***/ }),
+
+/***/ 501:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.setConfig = void 0;
+const Exec_1 = __nccwpck_require__(909);
+const oe = Object.entries;
+const fe = Object.fromEntries;
+function setConfig(conf) {
+    return fe(oe(conf).map(([k, v]) => {
+        const cmd = `git config ${JSON.stringify(k)} ${JSON.stringify(v)}`;
+        return [cmd, (0, Exec_1.execSyncString)(cmd)];
+    }));
+}
+exports.setConfig = setConfig;
+
+
+/***/ }),
+
+/***/ 956:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.diffHEAD = void 0;
+const Exec_1 = __nccwpck_require__(909);
+function diffHEAD() {
+    const cmd = `git diff HEAD`;
+    return (0, Exec_1.execSyncString)(cmd);
+}
+exports.diffHEAD = diffHEAD;
+
+
+/***/ }),
+
+/***/ 287:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.push = void 0;
+const Exec_1 = __nccwpck_require__(909);
+function push({ force, remote }) {
+    const cmd = `git push ${remote || ''} ${force ? '--force' : ''}`;
+    return (0, Exec_1.execSyncString)(cmd);
+}
+exports.push = push;
+
+
+/***/ }),
+
+/***/ 813:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.addRemote = void 0;
+const Exec_1 = __nccwpck_require__(909);
+function addRemote({ name, url }) {
+    const cmd = `git remote add ${name} ${url}`;
+    return (0, Exec_1.execSyncString)(cmd);
+}
+exports.addRemote = addRemote;
+
+
+/***/ }),
+
+/***/ 0:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+__exportStar(__nccwpck_require__(703), exports);
+__exportStar(__nccwpck_require__(886), exports);
+__exportStar(__nccwpck_require__(501), exports);
+__exportStar(__nccwpck_require__(999), exports);
+__exportStar(__nccwpck_require__(956), exports);
+__exportStar(__nccwpck_require__(287), exports);
+__exportStar(__nccwpck_require__(813), exports);
+
+
+/***/ }),
+
+/***/ 63:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.git = void 0;
+exports.git = __importStar(__nccwpck_require__(0));
+__exportStar(__nccwpck_require__(621), exports);
 
 
 /***/ }),
@@ -1651,6 +2059,14 @@ module.exports = require("assert");
 
 /***/ }),
 
+/***/ 129:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("child_process");
+
+/***/ }),
+
 /***/ 614:
 /***/ ((module) => {
 
@@ -1704,6 +2120,14 @@ module.exports = require("os");
 
 "use strict";
 module.exports = require("path");
+
+/***/ }),
+
+/***/ 765:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("process");
 
 /***/ }),
 

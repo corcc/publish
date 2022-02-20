@@ -1,11 +1,16 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Publish'
+description: 'Publish with Actions'
+author: 'TaYaKi71751'
 inputs:
-  milliseconds: # change this
+  GITHUB_TOKEN:
+    description: 'Github Token to push'
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  TASK_NAME:
+    description: 'Comment to Commit message'
+    required: true
+  TZ:
+    description: 'Zoneinfo to set Timezone'
+    required: false
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
