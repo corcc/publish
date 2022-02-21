@@ -47,6 +47,9 @@ export function Publish() {
     })
     core.info(result)
 
+    result = util.git.pullWithRebase({})
+    core.info(result)
+
     result = util.git.push({
       remote: remoteName,
       force: `${util.getEnv('FORCE')}` == 'true'
