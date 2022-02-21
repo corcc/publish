@@ -11,8 +11,9 @@ export function Publish() {
     let result: any
     core.info(`Branch on ${util.git.currentBranch()}`)
     const TZ = util.getEnv('TZ')
+    process.env.TZ = TZ
     if (TZ) {
-      core.info(`TimeZone on ${TZ}`)
+      core.info(`TimeZone on ${process.env.TZ}`)
     } else {
       core.info('TimeZone is not set.')
       core.info('TimeZone will be UTC')
