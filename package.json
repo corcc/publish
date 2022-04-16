@@ -1,0 +1,40 @@
+{
+  "name": "@corcc/publish",
+  "author": "TaYaKi71751",
+  "license": "WTFPL",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Publish Actions",
+  "main": "lib/main.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src/**/*.ts",
+    "package": "ncc build --source-map --license licenses.txt",
+    "all": "npm run build && npm run lint && npm run package"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corcc/publish.git"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "git"
+  ],
+  "dependencies": {
+    "@actions/core": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.10.5",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "@vercel/ncc": "^0.31.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "js-yaml": "^4.1.0",
+    "typescript": "^4.4.4"
+  }
+}

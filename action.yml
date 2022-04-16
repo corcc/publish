@@ -1,0 +1,16 @@
+name: 'Publish'
+description: 'Publish with Actions'
+author: 'TaYaKi71751'
+inputs:
+  GITHUB_TOKEN:
+    description: 'Github Token to push'
+    required: true
+  TASK_NAME:
+    description: 'Comment to Commit message'
+    required: true
+  TZ:
+    description: 'Zoneinfo to set Timezone'
+    required: false
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
